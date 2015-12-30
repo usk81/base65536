@@ -1,10 +1,7 @@
 package base65536
 
 import (
-    // "bytes"
-    // "fmt"
     "strings"
-    // "github.com/davecgh/go-spew/spew"
 )
 
 var (
