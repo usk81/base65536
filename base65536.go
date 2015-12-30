@@ -80,3 +80,25 @@ var (
     }
     unknownByteCodePoint int32 = 5376
 )
+
+func Encode(str string) string {
+    buf := []byte(str)
+
+    var s []string
+    bl := len(buf)
+    for i := 0; i < bl; i += 2 {
+        var b1 = rune(buf[i])
+        var b2 byte
+        if i + 1 < bl {
+            b2 = buf[i + 1]
+        }
+        var codepoint int32
+        if b2 == 0 {
+            codepoint = unknownByteCodePoint + b1
+        } else {
+            codepoint = encodeMap[b2] + b1
+        }
+        s = append(s, string(codepoint))
+    }
+    return strings.Join(s[:], "")
+}
