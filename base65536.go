@@ -102,3 +102,20 @@ func Encode(str string) string {
     }
     return strings.Join(s[:], "")
 }
+
+func Decode(str string) string {
+    rs := []rune(str)
+    var b []uint8
+    for _, r := range rs {
+        b1 := r & ((1 << 8) - 1)
+        b = append(b, uint8(b1))
+
+        b2val := r - b1
+        if b2val != unknownByteCodePoint {
+            b2 := decodeMap[b2val]
+            b = append(b, b2)
+        }
+    }
+    s := string(b)
+    return s
+}
