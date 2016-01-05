@@ -1,7 +1,10 @@
 package base65536
 
 import(
+    // test library
     "testing"
+    // other libraries
+    "strings"
 )
 
 func TestEncode(t *testing.T) {
@@ -24,8 +27,25 @@ func TestDecode(t *testing.T) {
     }
 }
 
-func TestCorrectnessChecking1(t *testing.T) {
+func TestCorrectnessCheckingJapaneseAndEnglish(t *testing.T) {
     str := "Why Japanese!? おかしいやろぉ！！ 躊躇って書いてる間に躊躇してまぅわ！"
+    encode_str := Encode(str)
+    decode_str := Decode(encode_str)
+
+    if (str != decode_str) {
+        t.Errorf("This encode/decode is not correct.\nbefore: %s\nafter: %s", str, decode_str)
+    }
+}
+
+func TestCorrectnessCheckingAllString(t *testing.T) {
+    str_map := []string{
+        "1234567890",
+        "abcdefghijklmnopqrstuvwxyz",
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゐゆゑよらりるれろわをん",
+        "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤヰユヱヨラリルレロワヲン",
+    }
+    str := strings.Join(str_map, "")
     encode_str := Encode(str)
     decode_str := Decode(encode_str)
 
