@@ -4,13 +4,39 @@ An implementation of [ferno's base65536](https://github.com/ferno/base65536), im
 
 ## Description
 
-## Demo
+This is a Go library for encoding and decoding.
+If you show detail for base65536, see [ferno's base65536 README page](https://github.com/ferno/base65536/)
 
-## Requirement
+## Install
+
+standard `go get`:
+
+```
+go get -u github.com/usk81/base65536
+```
 
 ## Usage
 
-## Install
+encode:
+
+```go
+s := "hello world"
+result := base65536.Encode(s)
+
+Println(result)
+// 驨ꍬ啯𒁷ꍲᕤ
+```
+
+decode:
+
+```go
+s := "驨ꍬ啯𒁷ꍲᕤ"
+
+result := base65536.Decode(s)
+Println(result)
+// hello world
+```
+
 
 ## Contribution
 
