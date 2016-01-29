@@ -1,6 +1,9 @@
 # base65536
 [![GoDoc](https://img.shields.io/badge/go-reference-blue.svg?style=flat-square)](https://godoc.org/github.com/usk81/base65536)
+[![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat-square)](https://github.com/usk81/base65536/blob/master/LICENSE)
+[![Build Status](http://img.shields.io/travis/usk81/base65536.svg?style=flat-square)](https://travis-ci.org/usk81/base65536)
 [![Coverage Status](https://img.shields.io/coveralls/usk81/base65536.svg?style=flat-square)](https://coveralls.io/github/usk81/base65536?branch=master)
+[![Gratipay User](https://img.shields.io/gratipay/user/YusukeKomatsu.svg?style=flat-square)](https://gratipay.com/YusukeKomatsu/)
 
 An implementation of [ferno's base65536](https://github.com/ferno/base65536), implemented in GoLang.
 
