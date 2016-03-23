@@ -29,27 +29,27 @@ func TestDecode(t *testing.T) {
 
 func TestCorrectnessCheckingJapaneseAndEnglish(t *testing.T) {
 	str := "Why Japanese!? おかしいやろぉ！！ 躊躇って書いてる間に躊躇してまぅわ！"
-	encode_str := Encode(str)
-	decode_str := Decode(encode_str)
+	encodeStr := Encode(str)
+	decodeStr := Decode(encodeStr)
 
-	if str != decode_str {
-		t.Errorf("This encode/decode is not correct.\nbefore: %s\nafter: %s", str, decode_str)
+	if str != decodeStr {
+		t.Errorf("This encode/decode is not correct.\nbefore: %s\nafter: %s", str, decodeStr)
 	}
 }
 
 func TestCorrectnessCheckingAllString(t *testing.T) {
-	str_map := []string{
+	strMap := []string{
 		"1234567890",
 		"abcdefghijklmnopqrstuvwxyz",
 		"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
 		"あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゐゆゑよらりるれろわをん",
 		"アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤヰユヱヨラリルレロワヲン",
 	}
-	str := strings.Join(str_map, "")
-	encode_str := Encode(str)
-	decode_str := Decode(encode_str)
+	str := strings.Join(strMap, "")
+	encodeStr := Encode(str)
+	decodeStr := Decode(encodeStr)
 
-	if str != decode_str {
-		t.Errorf("This encode/decode is not correct.\nbefore: %s\nafter: %s", str, decode_str)
+	if str != decodeStr {
+		t.Errorf("This encode/decode is not correct.\nbefore: %s\nafter: %s", str, decodeStr)
 	}
 }

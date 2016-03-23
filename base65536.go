@@ -6,7 +6,7 @@ import (
 
 var (
 	// Decode Mapper
-	decodeMap map[int32]uint8 = map[int32]uint8{
+	decodeMap = map[int32]uint8{
 		13312: 0, 13568: 1, 13824: 2, 14080: 3, 14336: 4, 14592: 5, 14848: 6, 15104: 7, 15360: 8,
 		15616: 9, 15872: 10, 16128: 11, 16384: 12, 16640: 13, 16896: 14, 17152: 15, 17408: 16,
 		17664: 17, 17920: 18, 18176: 19, 18432: 20, 18688: 21, 18944: 22, 19200: 23, 19456: 24,
@@ -41,7 +41,7 @@ var (
 		163584: 249, 163840: 250, 164096: 251, 164352: 252, 164608: 253, 164864: 254, 165120: 255,
 	}
 	// Encode Mapper
-	encodeMap map[uint8]int32 = map[uint8]int32{
+	encodeMap = map[uint8]int32{
 		0: 13312, 1: 13568, 2: 13824, 3: 14080, 4: 14336, 5: 14592, 6: 14848, 7: 15104, 8: 15360,
 		9: 15616, 10: 15872, 11: 16128, 12: 16384, 13: 16640, 14: 16896, 15: 17152, 16: 17408,
 		17: 17664, 18: 17920, 19: 18176, 20: 18432, 21: 18688, 22: 18944, 23: 19200, 24: 19456,
@@ -78,6 +78,7 @@ var (
 	unknownByteCodePoint int32 = 5376
 )
 
+// Encode a string and return a Base65536 string.
 func Encode(str string) string {
 	buf := []byte(str)
 
@@ -100,6 +101,7 @@ func Encode(str string) string {
 	return strings.Join(s[:], "")
 }
 
+// Decode a Base65536 string and return a string.
 func Decode(str string) string {
 	rs := []rune(str)
 	var b []uint8
